@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    padding-bottom: 80px; /* Space for the fixed footer */
+}
+
+/* --- Navigation --- */
+header {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: #a3223a;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #d63654;
+}
+
+/* Highlights the active page in the nav */
+nav a.active {
+    color: white;
+    border-bottom: 2px solid white;
+    padding-bottom: 5px;
+}
+
+/* --- Page Sections (Hidden by default, shown via JS) --- */
+.page-section {
+    display: block; /* Shows About Me by default on page load */
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* This hides the non-active sections */
+.page-section:not(.active) {
+    display: none;
+}
+
+/* Page Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-section.active {
+    animation: fadeIn 0.5s ease;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* --- Gallery Grid --- */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.gallery-item {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5; 
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Placeholder styling for images you haven't added yet */
+.placeholder-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+}
+
+.placeholder-box p {
+    color: #666;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.subtitle {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-bottom: 60px;
+    color: #444;
+}
+
+/* --- Contact Tiles --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-tile {
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.contact-tile:hover {
+    background-color: #800020;
+    transform: translateY(-5px);
+}
+
+.contact-tile h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.contact-tile p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+    .section-title { font-size: 1.6rem; }
+    .gallery { grid-template-columns: 1fr; }
+    nav a { display: inline-block; margin: 10px 10px; }
+}

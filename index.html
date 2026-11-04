@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Palesa Kamohi</title>
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            /* ADDED: Smooth fade-in when the page first loads */
+            animation: pageLoad 1s ease forwards;
+        }
+
+        .landing-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .landing-content p {
+            font-size: 1.2rem;
+            color: #a3223a;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn {
+            background-color: #800020;
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 4px;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #a3223a;
+            transform: scale(1.05);
+        }
+
+        /* ADDED: The fade-out animation class */
+        .fade-out {
+            animation: fadeOut 0.8s ease forwards;
+        }
+
+        @keyframes pageLoad {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; transform: scale(1); }
+            to { opacity: 0; transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body id="landing-body">
+
+    <div class="landing-content">
+        <h1>Welcome to Palesa's Portfolio</h1>
+        <p>STEM Graduate • DJ • Crochet Artist</p>
+        
+        <!-- ADDED: onclick function to trigger the transition -->
+        <!-- Note: Make sure "Portfolio.html" matches your exact file name! -->
+        <button onclick="enterPortfolio('index.html')" class="cta-btn">Enter Portfolio</button>
+    </div>
+
+    <script>
+        function enterPortfolio(targetUrl) {
+            // 1. Add the fade-out class to the body
+            var body = document.getElementById('landing-body');
+            body.classList.add('fade-out');
+
+            // 2. Wait for the animation to finish (800ms), then go to the portfolio
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 800); 
+        }
+    </script>
+
+</body>
+</html>
